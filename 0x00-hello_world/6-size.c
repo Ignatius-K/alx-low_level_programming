@@ -1,11 +1,11 @@
 #include <stdio.h>
 
-/*
+/**
  * main - prints size of data
  *
+ * Description: Prints out sizes of data types.
  * Return: 0 everytime
  */
-
 int main(void)
 {
 	printf("Size of a char: %zu byte(s)\n", sizeof(char));
