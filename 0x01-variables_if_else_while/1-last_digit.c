@@ -26,7 +26,7 @@ int main(void)
 	{
 		printf("%s of %d is %d and is greater than 5", start, n, last_digit);
 	}
-	else if (n == 0)
+	else if (last_digit == 0)
 	{
 		printf("%s of %d is %d and is 0", start, n, last_digit);
 	}
