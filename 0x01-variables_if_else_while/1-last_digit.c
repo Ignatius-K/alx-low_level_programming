@@ -14,13 +14,13 @@
 int main(void)
 {
 	int n;
+	int last_digit;
+	char start[] = "Last digit of";
 
 	srand(time(0));
 	n = rand() - RAND_MAX / 2;
 
-	char start[] = "Last digit of";
-
-	int last_digit = abs(n % 10);
+	last_digit = abs(n % 10);
 
 	if (last_digit > 5)
 	{
