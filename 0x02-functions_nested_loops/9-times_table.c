@@ -21,10 +21,12 @@ void times_table(void)
 		{
 			pdt = i * j;
 
-			_putchar(32);
+			if (j != 0)
+				_putchar(32);
 			if (pdt <= 9)
 			{
-				_putchar(32);
+				if (j != 0)
+					_putchar(32);
 				_putchar('0' + pdt);
 			}
 
