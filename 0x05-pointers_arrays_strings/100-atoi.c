@@ -9,7 +9,8 @@
 
 int _atoi(char *s)
 {
-	int j, number, first_digit_position, positives, negatives;
+	int number, first_digit_position, positives, negatives;
+	unsigned int j;
 
 	negatives = 0;
 	positives = 0;
