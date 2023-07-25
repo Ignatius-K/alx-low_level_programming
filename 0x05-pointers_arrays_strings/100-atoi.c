@@ -9,12 +9,11 @@
 
 int _atoi(char *s)
 {
-	int j, first_digit_position, positives, negatives, length;
+	int j, first_digit_position, negatives, length;
 	double number;
 
 	length = strlen(s);
 	negatives = 0;
-	positives = 0;
 	first_digit_position = -1;
 	for (j = 0; j < length; j++)
 	{
@@ -42,12 +41,11 @@ int _atoi(char *s)
 		{
 			if (s[j] == '-')
 				negatives += 1;
-			else if (s[j] == '+')
-				positives += 1;
 		}
-		if (negatives > positives)
+		if (negatives % 2)
 			number = number * -1;
 	}
+
 	return (number);
 }
 
