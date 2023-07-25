@@ -9,13 +9,13 @@
 
 int _atoi(char *s)
 {
-	int number, positives, negatives;
-	unsigned int j, first_digit_position;
+	int j, first_digit_position, number, positives, negatives, length;
+	length = strlen(s);
 
 	negatives = 0;
 	positives = 0;
 	first_digit_position = -1;
-	for (j = 0; j < strlen(s); j++)
+	for (j = 0; j < length; j++)
 	{
 		if (s[j] > 47 && s[j] < 58)
 		{
@@ -28,7 +28,7 @@ int _atoi(char *s)
 		number = 0;
 	else
 	{
-		for (j = first_digit_position + 1; j < strlen(s); j++)
+		for (j = first_digit_position + 1; j < length; j++)
 		{
 			if (s[j] >= 48 && s[j] <= 57)
 				number = (number * 10) + (s[j] - '0');
