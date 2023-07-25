@@ -9,9 +9,10 @@
 
 int _atoi(char *s)
 {
-	int j, first_digit_position, number, positives, negatives, length;
-	length = strlen(s);
+	int j, first_digit_position, positives, negatives, length;
+	double number;
 
+	length = strlen(s);
 	negatives = 0;
 	positives = 0;
 	first_digit_position = -1;
