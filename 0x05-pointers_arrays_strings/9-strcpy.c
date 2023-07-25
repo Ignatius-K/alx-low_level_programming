@@ -6,8 +6,8 @@
  * @src: pointer
  * Return: pointer
  */
-char *_strcpy(char *dest, char *src) {
-
+char *_strcpy(char *dest, char *src)
+{
 	char *ptr = dest;
 
 	while (*src != '\0')
@@ -18,5 +18,5 @@ char *_strcpy(char *dest, char *src) {
 	}
 
 	*dest = '\0';
-	return ptr;
+	return (ptr);
 }
