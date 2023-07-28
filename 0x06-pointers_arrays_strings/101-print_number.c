@@ -7,7 +7,8 @@
  */
 void print_number(int n)
 {
-	int n_of_digits, num, i, j, divisor, digit;
+	int n_of_digits, i, j, divisor, digit;
+	unsigned int num;
 
 	/* gets digits of the number */
 	n_of_digits = 0;
