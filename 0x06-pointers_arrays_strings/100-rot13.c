@@ -10,25 +10,28 @@ char *rot13(char *str)
 {
 
 	int i;
+	int j;
 
 	i = 0;
+	j = 0;
 	while (str[i] != '\0')
 	{
 
-		while ((str[i] > 64 && str[i] < 122) || (str[i] > 96 && str[i] < 123))
+		for (j = i; ((str[j] > 64 && str[j] < 122) || (str[j] > 96 && str[j] < 123))
+				; j++)
 		{
-			if ((str[i] > 96 && str[i] < 110) || (str[i] > 64 && str[i] < 78))
+			if ((str[j] > 96 && str[j] < 110) || (str[j] > 64 && str[j] < 78))
 			{
-				str[i] += 13;
+				str[j] += 13;
 			}
 
 			else
 			{
-				str[i] -= 13;
+				str[j] -= 13;
 			}
 
-
 			i++;
+
 		}
 
 		i++;
