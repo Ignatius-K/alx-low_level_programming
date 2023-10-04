@@ -12,6 +12,7 @@
 int **alloc_grid(int width, int height)
 {
 	int i;
+	int j;
 	int **ptr;
 	int *base_ptr;
 
@@ -28,7 +29,14 @@ int **alloc_grid(int width, int height)
 	{
 		base_ptr = grid(width);
 		if (base_ptr == NULL)
+		{
+			for (j = 0; j < i; j++)
+			{
+				free(ptr[i]);
+			}
+			free(ptr);
 			return (NULL);
+		}
 
 		ptr[i] = base_ptr;
 	}
