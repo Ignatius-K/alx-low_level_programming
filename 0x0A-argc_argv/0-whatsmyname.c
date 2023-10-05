@@ -1,5 +1,4 @@
 #include "main.h"
-#include "stdlib.h"
 
 /**
  * main - prints name of program
@@ -21,5 +20,4 @@ int main(int argc __attribute__((unused)), char *argv[])
 	}
 	_putchar('\n');
 
-	exit(EXIT_SUCCESS);
 }
