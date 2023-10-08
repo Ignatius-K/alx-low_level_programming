@@ -23,9 +23,10 @@ void *_calloc(unsigned int nmemb, unsigned int size)
 
 	for (i = 0; i < (int)nmemb; i++)
 	{
-		c_ptrp = (char *)(ptr + i * size);
+		c_ptrp = (char *)ptr;
+		c_ptrp = c_ptrp + (i * size);
 
-		for (j = 0; j < size; j++)
+		for (j = 0; j < (int)size; j++)
 			c_ptrp[j] = 0;
 	}
 	return (ptr);
