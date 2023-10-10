@@ -40,7 +40,7 @@ void print_dog(struct dog *d)
 	}
 	if (owner == NULL)
 	{
-		printf("Owner: (NIL)\n");
+		printf("Owner: (nil)\n");
 	}
 	else
 	{
