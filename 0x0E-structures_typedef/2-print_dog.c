@@ -18,6 +18,9 @@ void print_dog(struct dog *d)
 	age = d->age;
 	owner = d->owner;
 
+	if (d == NULL)
+		return;
+
 	if (name == NULL)
 	{
 		printf("Name: (NIL)\n");
