@@ -8,7 +8,7 @@
  *
  * Return: pointer function that returns int with 2 int args
  */
-int (*get_op_funct(char *s))(int, int)
+int (*get_op_func(char *s))(int, int)
 {
 
 	int i = 0;

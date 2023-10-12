@@ -23,6 +23,6 @@ typedef struct op
 	int (*f)(int, int);
 } op_t;
 
-int (*get_op_funct(char *s))(int, int);
+int (*get_op_func(char *s))(int, int);
 
 #endif
