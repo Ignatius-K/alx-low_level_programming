@@ -11,6 +11,11 @@ int op_div(int, int);
 
 int op_mod(int, int);
 
+/**
+ * struct op - defines an operation
+ * @op: char defining operation
+ * @f: pointer to function
+ */
 typedef struct op
 {
 	char *op;
