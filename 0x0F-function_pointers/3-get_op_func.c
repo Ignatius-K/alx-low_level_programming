@@ -3,7 +3,7 @@
 #include <stddef.h>
 
 /**
- * get_op_funct - gets operations based on character
+ * get_op_func - gets operations based on character
  * @s: char to refer to the operation
  *
  * Return: pointer function that returns int with 2 int args
