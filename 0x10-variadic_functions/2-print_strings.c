@@ -4,8 +4,6 @@
 
 void print_separator(const char *separator);
 
-int is_string(const char *);
-
 /**
  * print_strings - prints the numbers
  * @separator: string to separate printed numbers
@@ -23,15 +21,7 @@ void print_strings(const char *separator, const unsigned int n, ...)
 	for (i = 0; i < n; i++)
 	{
 		str = va_arg(val, const char*);
-		if (!str)
-			printf("(nil)");
-		else
-		{
-			if (is_string(str) == 1)
-			{
-				printf("%s", str);
-			}
-		}
+		printf("%s", str ? str : "(nil)");
 		if (i < n - 1)
 			print_separator(separator);
 
@@ -52,43 +42,5 @@ void print_separator(const char *separator)
 	if (separator)
 		printf("%s", separator);
 }
-
-/**
- * is_string - checks whether str is string
- * @str: characters to check
- *
- * Return: 1 if true else 0
- */
-int is_string(const char *str)
-{
-	int i;
-
-	i = 0;
-	if (!str)
-		return (-1);
-	while (str[i] != '\0')
-	{
-		if (!((str[i] > 64 && str[i] < 91) || (str[i] > 96 && str[i] < 123)))
-			return (0);
-		i++;
-	}
-	return (1);
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
