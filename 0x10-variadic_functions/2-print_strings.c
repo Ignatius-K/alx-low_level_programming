@@ -24,7 +24,7 @@ void print_strings(const char *separator, const unsigned int n, ...)
 	{
 		str = va_arg(val, char*);
 		if (!str)
-			continue;
+			printf("\(nil\)");
 		if (is_string(str) == 1)
 		{
 			printf("%s", str);
@@ -60,6 +60,8 @@ int is_string(char *str)
 	int i;
 
 	i = 0;
+	if (!str)
+		return (-1);
 	while (str[i] != '\0')
 	{
 		if (!((str[i] > 64 && str[i] < 91) || (str[i] > 96 && str[i] < 123)))
