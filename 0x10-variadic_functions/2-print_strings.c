@@ -4,7 +4,7 @@
 
 void print_separator(const char *separator);
 
-int is_string(char *);
+int is_string(const char *);
 
 /**
  * print_strings - prints the numbers
@@ -17,12 +17,12 @@ void print_strings(const char *separator, const unsigned int n, ...)
 {
 	unsigned int i;
 	va_list val;
-	char *str;
+	const char *str;
 
 	va_start(val, n);
 	for (i = 0; i < n; i++)
 	{
-		str = va_arg(val, char*);
+		str = va_arg(val, const char*);
 		if (!str)
 			printf("(nil)");
 		else
@@ -59,7 +59,7 @@ void print_separator(const char *separator)
  *
  * Return: 1 if true else 0
  */
-int is_string(char *str)
+int is_string(const char *str)
 {
 	int i;
 
