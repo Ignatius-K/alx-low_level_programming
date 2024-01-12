@@ -1,29 +1,42 @@
-#include "main.h"
-
 /**
- * _atoi - convert a string into an integer.
+ * _atoi - Converts a string to an integer.
+ * @s: The input string to be converted.
  *
- * @s: the string to use.
- *
- * Return: integer.
+ * Return: The integer value extracted from the string.
  */
-
 int _atoi(char *s)
 {
-	int sign = 1, i = 0;
-	unsigned int res = 0;
-	
-	while (!(s[i] <= '9' && s[i] >= '0') && s[i] != '\0')
+	/* Initialize variables */
+	int nb;    /* Stores the final result. */
+	int sign;  /* Keeps track of the sign. */
+
+	nb = 0;    /* Initialize 'nb' to 0 (the initial result). */
+	sign = 1;  /* Initialize 'sign' to 1 (positive sign). */
+
+	/* Iterate through the input string 's' until the end is reached. */
+	while (*s)
 	{
-		if (s[i] == '-')
-			sign *= -1;
-		i++;
+		if (*s == '-')  /* Check if the current character is a minus sign. */
+		{
+			sign *= -1;  /* Toggle the sign by multiplying 'sign' by -1. */
+		}
+		else if (*s >= '0' && *s <= '9')  /* Check if the current character is a digit (0-9). */
+		{
+			/* Update 'nb' by multiplying the current value of 'nb' by 10 and adding the digit to it,
+			 * considering the sign.
+			 */
+			nb = nb * 10 + sign * (*s - '0');
+		}
+		/* Check if 'nb' has already been assigned a non-zero value. */
+		else if (nb != 0)  
+		{
+			/* Exit the loop to avoid further processing. */
+			break;  
+		}
+		/* Move to the next character in the input string. */
+		s++;  
 	}
-	while (s[i] <= '9' && (s[i] >= '0' && s[i] != '\0'))
-	{
-		res = (res * 10) + (s[i] - '0');
-		i++;
-	}
-	res *= sign;
-	return (res);
+
+	/* Return the final integer result. */
+	return (nb);
 }
