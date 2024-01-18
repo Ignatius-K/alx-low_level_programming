@@ -1,47 +1,51 @@
 #include "main.h"
+#include <stdlib.h>
 
 /**
- * string_nconcat - Concatenates n characters from s2 to s1.
- * @s1: The first string.
- * @s2: The second string.
- * @n: The number of characters from s2 to concatenate.
- *
- * Return: A pointer to the concatenated string, or NULL on failure.
+  *string_nconcat - start
+  * @s1: char
+  * @s2: char
+  * @n: ptr
+  * Return: ptr else NULL
  */
+
 char *string_nconcat(char *s1, char *s2, unsigned int n)
 {
-	unsigned int i, j;
+	char *s;
+	unsigned int a, b, c, d;
 
-	char *ptr;
-
-	ptr = malloc((strlen(s1) + n + 1) * sizeof(char));
-	if (ptr == NULL)
+	a = 0;
+	b = a;
+	c = b;
+	d = c;
+	while (s1 && s1[c])
+		c++;
+	while (s2 && s2[d])
+		d++;
+	if (n < d)
+	{
+		s = malloc(sizeof(char) * (c + n + 1));
+	} else
+	{
+		s = malloc(sizeof(char) * (c + d + 1));
+	}
+	if (!s)
 	{
 		return (NULL);
 	}
-
-	for (i = 0; i < strlen(s1); i++)
+	while (a < c)
 	{
-		ptr[i] = s1[i];
+		s[a] = s1[a];
+		a++;
 	}
-
-	if (n < strlen(s2))
+	while (n < d && a < (c + n))
 	{
-		for (j = 0; j < n; j++)
-		{
-			ptr[i + j] = s2[j];
-		}
+		s[a++] = s2[b++];
 	}
-	else
+	while (n >= d && a < (c + d))
 	{
-		for (j = 0; j < strlen(s2); j++)
-		{
-			ptr[i + j] = s2[j];
-		}
+		s[a++] = s2[b++];
 	}
-
-	ptr[i + j] = '\0';
-
-	return (ptr);
-
+	s[a] = '\0';
+	return (s);
 }
