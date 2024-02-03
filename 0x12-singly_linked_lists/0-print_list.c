@@ -15,7 +15,7 @@ size_t print_list(const list_t *headNode)
 	if (headNode == NULL)
 		return (0);
 
-	*nodePtr = *headNode;
+	nodePtr = headNode;
 	while (nodePtr != NULL)
 	{
 		num_of_nodes++;
