@@ -12,13 +12,17 @@ void free_list(list_t *head)
 	list_t *freeNode;
 
 	if (head == NULL)
+	{
 		return;
+	}
 
 	swapNode = head;
 	while (swapNode != NULL)
 	{
 		freeNode = swapNode->next;
+		free(swapNode->str);
 		free(swapNode);
 		swapNode = freeNode;
 	}
+
 }
