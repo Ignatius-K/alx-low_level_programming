@@ -11,6 +11,9 @@ void free_listint2(listint_t **head)
 	listint_t *nNode;
 	listint_t *swpNode;
 
+	if (head == NULL)
+		return;
+
 	nNode = *head;
 	while (nNode != NULL)
 	{
