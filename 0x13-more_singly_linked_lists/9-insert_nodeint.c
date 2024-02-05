@@ -24,9 +24,15 @@ listint_t *insert_nodeint_at_index(listint_t **head, unsigned int idx, int n)
 	if (head == NULL)
 		return (NULL);
 
-
 	swp_node = *head;
-	while (swp_node != NULL && idx_cmp != idx)
+	if (idx == 0)
+	{
+		new_node->next = swp_node;
+		*head = new_node;
+		return (new_node);
+	}
+
+	while (swp_node != NULL && idx_cmp < idx)
 	{
 		if (idx_cmp == (idx - 1))
 		{
