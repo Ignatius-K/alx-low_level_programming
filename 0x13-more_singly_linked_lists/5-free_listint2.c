@@ -19,4 +19,5 @@ void free_listint2(listint_t **head)
 		nNode = swpNode;
 	}
 	*head = NULL;
+	head = NULL;
 }
