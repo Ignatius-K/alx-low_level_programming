@@ -1,21 +1,19 @@
-#include lists.h
+#include "lists.h"
 
-size_t print_dlistint(const dlistint_t *h)
+/**
+ * sum_dlistint - sum of list
+ * @head: head node of d-linked list
+ *
+ * Return: sum of dlinked list
+ */
+int sum_dlistint(dlistint_t *head)
 {
-	size_t num_of_nodes = 0;
-	dlistint_t node;
+	int sum = 0;
 
-	if (!h)
+	while(head)
 	{
-		return (num_of_nodes);
+		sum += head->n;
+		head = head->next;
 	}
-
-	node = *h;
-	while (node)
-	{
-		num_of_nodes++;
-		printf("%d\n", node->n)
-	}
-
-	return (num_of_nodes);
+	return (sum);
 }
