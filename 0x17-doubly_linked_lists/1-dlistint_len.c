@@ -1,7 +1,7 @@
 #include "lists.h"
 
 /**
- * dlistint_len - length of d-linked list
+ * dlistint_t_len - length of d-linked list
  *
  * @h: d-linked list
  *
