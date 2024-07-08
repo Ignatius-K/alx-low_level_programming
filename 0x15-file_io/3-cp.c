@@ -4,15 +4,15 @@
 
 
 /**
- * __exit - prints error messages and exits with exit number
+ * __exit - prints error message
  *
- * @error: either the exit number or file descriptor
- * @str: name of either file_in or file_out
+ * @error: exit number
+ * @str: file name
  * @fd: file descriptor
  *
- * Return: 0 on success
+ * Return: 0
 */
-int __exit(int error, char *str, int fd)
+int __exit(int error, char *s, int fd)
 {
 	switch (error)
 	{
@@ -36,10 +36,10 @@ int __exit(int error, char *str, int fd)
 /**
  * main - create a copy of file
  *
- * @argc: argument counter
- * @argv: argument vector
+ * @argc: args number
+ * @argv: args
  *
- * Return: 0 for success.
+ * Return: 0
 */
 int main(int argc, char *argv[])
 {
@@ -48,37 +48,37 @@ int main(int argc, char *argv[])
 	int close_in, close_out;
 	char buffer[MAXSIZE];
 
-	/*if arguments are not 3*/
+	
 	if (argc != 3)
 		__exit(97, NULL, 0);
 
-	/*sets file descriptor for copy from file*/
+	
 	file_in = open(argv[1], O_RDONLY);
 	if (file_in == -1)
 		__exit(98, argv[1], 0);
 
-	/*sets file descriptor for copy to file*/
+	
 	file_out = open(argv[2], O_CREAT | O_TRUNC | O_WRONLY, 0664);
 	if (file_out == -1)
 		__exit(99, argv[2], 0);
 
-	/*reads file_in as long as its not NULL*/
+	
 	while ((read_stat = read(file_in, buffer, MAXSIZE)) != 0)
 	{
 		if (read_stat == -1)
 			__exit(98, argv[1], 0);
 
-		/*copy and write contents to file_out*/
+		
 		write_stat = write(file_out, buffer, read_stat);
 		if (write_stat == -1)
 			__exit(99, argv[2], 0);
 	}
 
-	close_in = close(file_in); /*close file_in*/
+	close_in = close(file_in); 
 	if (close_in == -1)
 		__exit(100, NULL, file_in);
 
-	close_out = close(file_out); /*close file_out*/
+	close_out = close(file_out); 
 	if (close_out == -1)
 		__exit(100, NULL, file_out);
 

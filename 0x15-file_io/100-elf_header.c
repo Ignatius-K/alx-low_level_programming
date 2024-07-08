@@ -1,21 +1,9 @@
 #include "main.h"
 
-/*
- * e_ident[] - IDENTIFICATION INDEXES
- *
- * Description: The initial bytes mark the file as an object file
- *              and provide machine-independent data.
- * The initial bytes of an ELF header (and an object file)
- *  correspond to the e_ident member.
-*/
-
 /**
- * check_if_elf - checks if file is an ELF file by checking if it
- *                contains the magic numbers/file signature of an ELF file
+ * check_if_elf - checks if file an ELF file
  *
- * @e_ident: a pointer to an array of bytes specifies
- *           how to interpret the file
- *
+ * @e_ident: pointer to an array
  * Return: nothing
 */
 void check_if_elf(unsigned char *e_ident)
@@ -27,7 +15,7 @@ void check_if_elf(unsigned char *e_ident)
 		if (e_ident[index] != 127 &&
 		    e_ident[index] != 'E' &&
 		    e_ident[index] != 'L' &&
-		    e_ident[index] != 'F') /*0x7F is 127 in ASCII*/
+		    e_ident[index] != 'F') 
 		{
 			dprintf(STDERR_FILENO, "Error: Not an ELF file\n");
 			exit(98);
@@ -41,7 +29,6 @@ void check_if_elf(unsigned char *e_ident)
  * print_magic - prints the magic numbers of the ELF file
  *
  * @e_ident: a pointer to an array of bytes specifies
- *           how to interpret the file
  *
  * Return: nothing
 */
@@ -51,14 +38,14 @@ void print_magic(unsigned char *e_ident)
 
 	printf("  Magic    ");
 
-	while (index < EI_NIDENT) /*EI_NIDENT == sizeof(e_ident[]) = 16*/
+	while (index < EI_NIDENT) 
 	{
 		printf("%02x", e_ident[index]);
 
 		if (index == EI_NIDENT - 1)
 			printf("\n");
 		else
-			printf(" "); /*space each number*/
+			printf(" "); 
 
 		index++;
 	}
@@ -68,7 +55,6 @@ void print_magic(unsigned char *e_ident)
  * print_class - prints the class of the ELF file
  *
  * @e_ident: a pointer to an array of bytes specifies
- *           how to interpret the file
  *
  * Return: nothing
 */
@@ -76,7 +62,7 @@ void print_class(unsigned char *e_ident)
 {
 	printf("  Class:                             ");
 
-	switch (e_ident[EI_CLASS]) /*EI_CLASS - File class*/
+	switch (e_ident[EI_CLASS]) 
 	{
 		case ELFCLASSNONE:
 			printf("none\n");
@@ -96,7 +82,6 @@ void print_class(unsigned char *e_ident)
  * print_data - prints the data encoding of the ELF file
  *
  * @e_ident: a pointer to an array of bytes specifies
- *           how to interpret the file
  *
  * Return: nothing
 */
@@ -104,7 +89,7 @@ void print_data(unsigned char *e_ident)
 {
 	printf("  Data:                              ");
 
-	switch (e_ident[EI_DATA]) /*EI_DATA - Data encoding*/
+	switch (e_ident[EI_DATA]) 
 	{
 		case ELFDATANONE:
 			printf("none\n");
@@ -124,13 +109,12 @@ void print_data(unsigned char *e_ident)
  * print_version - print the version of the ELF file
  *
  * @e_ident: a pointer to an array of bytes specifies
- *           how to interpret the file
  *
  * Return: nothing
 */
 void print_version(unsigned char *e_ident)
 {
-	printf("  Version:                           ");/*EI_VERSION - File version*/
+	printf("  Version:                           ");
 
 	if (e_ident[EI_VERSION] == EV_CURRENT)
 		printf("%d (current)\n", e_ident[EI_VERSION]);
@@ -142,7 +126,6 @@ void print_version(unsigned char *e_ident)
  * print_osabi - prints the OS/ABI of the ELF file
  *
  * @e_ident: a pointer to an array of bytes specifies
- *           how to interpret the file
  *
  * Return: nothing
 */
@@ -150,7 +133,7 @@ void print_osabi(unsigned char *e_ident)
 {
 	printf("  OS/ABI:                            ");
 
-	switch (e_ident[EI_OSABI])/*EI_OSABI = OS Application Binary Interface*/
+	switch (e_ident[EI_OSABI])
 	{
 		case ELFOSABI_SYSV:
 			printf("UNIX - System V\n");
@@ -194,14 +177,13 @@ void print_osabi(unsigned char *e_ident)
  * print_abi - prints the Application Binary Interface of the ELF file
  *
  * @e_ident: a pointer to an array of bytes specifies
- *           how to interpret the file
  *
  * Return: nothing
 */
 void print_abi(unsigned char *e_ident)
 {
 	printf("  ABI Version:                       %d\n",
-		e_ident[EI_ABIVERSION]); /*EI_ABIVERSION = ABI version*/
+		e_ident[EI_ABIVERSION]); 
 }
 
 /**
@@ -209,7 +191,6 @@ void print_abi(unsigned char *e_ident)
  *
  * @e_type: the object file type
  * @e_ident: a pointer to an array of bytes specifies
- *           how to interpret the file
  *
  * Return: nothing
 */
@@ -246,10 +227,8 @@ void print_type(unsigned int e_type, unsigned char *e_ident)
  * print_entry - prints the entry point of an ELF file
  *
  * @e_entry: the virtual memory address from where the
- *           process starts executing
  *
  * @e_ident: a pointer to an array of bytes specifies
- *           how to interpret the file
  *
  * Return: nothing
 */
